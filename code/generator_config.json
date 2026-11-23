@@ -1,0 +1,210 @@
+{
+  "design_space": {
+    "capsule_content_wt_pct": [
+      0.5,
+      20.0
+    ],
+    "capsule_d50_um": [
+      30.0,
+      450.0
+    ],
+    "heal_temperature_C": [
+      20.0,
+      100.0
+    ],
+    "heal_time_h": [
+      2.0,
+      96.0
+    ],
+    "initial_crack_opening_um": [
+      5.0,
+      250.0
+    ]
+  },
+  "chemistries": {
+    "ROMP_DCPD_METATHESIS": {
+      "probability": 0.4,
+      "activation_temperature_C": 38.0,
+      "activation_time_h": 18.0,
+      "eta_offset_pct": 5.0,
+      "penalty_offset_pct": 0.5
+    },
+    "EPOXY_AMINE_DUAL_CAPSULE": {
+      "probability": 0.35,
+      "activation_temperature_C": 52.0,
+      "activation_time_h": 24.0,
+      "eta_offset_pct": 1.0,
+      "penalty_offset_pct": 1.5
+    },
+    "SOLVENT_ASSISTED_EPOXY": {
+      "probability": 0.25,
+      "activation_temperature_C": 32.0,
+      "activation_time_h": 36.0,
+      "eta_offset_pct": -4.0,
+      "penalty_offset_pct": -0.5
+    }
+  },
+  "interfaces": {
+    "NONE_OR_UNTREATED": {
+      "eta_effect_pct": 0.0,
+      "penalty_effect_pct": 0.8
+    },
+    "SILANE_AMINO": {
+      "eta_effect_pct": 4.0,
+      "penalty_effect_pct": -1.0
+    },
+    "SILANE_EPOXY": {
+      "eta_effect_pct": 3.0,
+      "penalty_effect_pct": -0.8
+    },
+    "SHELL_GRAFT_OR_COVALENT": {
+      "eta_effect_pct": 5.0,
+      "penalty_effect_pct": -0.4
+    }
+  },
+  "allowed_chemistry_interface_pairs": [
+    [
+      "ROMP_DCPD_METATHESIS",
+      "NONE_OR_UNTREATED"
+    ],
+    [
+      "ROMP_DCPD_METATHESIS",
+      "SILANE_AMINO"
+    ],
+    [
+      "ROMP_DCPD_METATHESIS",
+      "SILANE_EPOXY"
+    ],
+    [
+      "EPOXY_AMINE_DUAL_CAPSULE",
+      "NONE_OR_UNTREATED"
+    ],
+    [
+      "EPOXY_AMINE_DUAL_CAPSULE",
+      "SILANE_AMINO"
+    ],
+    [
+      "EPOXY_AMINE_DUAL_CAPSULE",
+      "SHELL_GRAFT_OR_COVALENT"
+    ],
+    [
+      "SOLVENT_ASSISTED_EPOXY",
+      "NONE_OR_UNTREATED"
+    ],
+    [
+      "SOLVENT_ASSISTED_EPOXY",
+      "SILANE_EPOXY"
+    ],
+    [
+      "SOLVENT_ASSISTED_EPOXY",
+      "SHELL_GRAFT_OR_COVALENT"
+    ]
+  ],
+  "mechanism": {
+    "eta_intercept_pct": 7.0,
+    "eta_scale_pct": 112.0,
+    "content_half_saturation_wt_pct": 4.0,
+    "content_overload_start_wt_pct": 15.0,
+    "content_overload_slope_pct_per_wt_pct": 1.5,
+    "ideal_d50_to_crack_ratio": 1.8,
+    "log_ratio_width": 0.85,
+    "activation_temperature_width_C": 12.0,
+    "activation_log_time_width": 1.1,
+    "anchor_reference_eta_pct": 70.0,
+    "anchor_intercept_weight": 0.25,
+    "family_eta_sd_pct": 4.0,
+    "eta_noise_floor_pct": 4.5,
+    "eta_noise_fraction": 0.035,
+    "penalty_content_slope": 0.82,
+    "penalty_size_slope_per_100um": 0.7,
+    "penalty_family_sd_pct": 1.0,
+    "penalty_noise_sd_pct": 1.6
+  },
+  "plausibility": {
+    "eta_k_pct": [
+      -10.0,
+      140.0
+    ],
+    "strength_penalty_pct": [
+      -5.0,
+      40.0
+    ]
+  },
+  "sampling": {
+    "seed": 20260809,
+    "n_families": 250,
+    "rows_per_family": 10,
+    "family_split_seed": 2005808381,
+    "calibration_split_seed": 2096815078,
+    "candidate_grid_seed": 1623432794,
+    "candidate_rows": 2048,
+    "predictive_draws": 240,
+    "weight_bootstraps": 2000,
+    "calibration_bootstraps": 2000,
+    "rank_bootstraps": 2000
+  },
+  "model_seeds": {
+    "eta_k_pct": {
+      "bayesian_multilevel": 686458851,
+      "catboost": 25571775,
+      "elastic_net": 815680487,
+      "random_forest": 526307936,
+      "mixed_gp": 1950442060
+    },
+    "strength_penalty_pct": {
+      "bayesian_multilevel": 248715638,
+      "catboost": 1193694087,
+      "elastic_net": 428145381,
+      "random_forest": 12132905,
+      "mixed_gp": 783589340
+    }
+  },
+  "candidate_draw_seeds": {
+    "bayesian_multilevel": {
+      "eta_k_pct": 1660120756,
+      "strength_penalty_pct": 1660120757
+    },
+    "catboost": {
+      "eta_k_pct": 1660120856,
+      "strength_penalty_pct": 1660120857
+    },
+    "elastic_net": {
+      "eta_k_pct": 1660120956,
+      "strength_penalty_pct": 1660120957
+    },
+    "random_forest": {
+      "eta_k_pct": 1660121156,
+      "strength_penalty_pct": 1660121157
+    },
+    "mixed_gp": {
+      "eta_k_pct": 1660121056,
+      "strength_penalty_pct": 1660121057
+    }
+  },
+  "model_profile": {
+    "bootstrap_models": 6,
+    "rf_trees": 250,
+    "catboost_iterations": 280,
+    "catboost_ensemble": 3,
+    "advi_steps": 1500,
+    "posterior_draws": 300,
+    "gp_max_rows": 600
+  },
+  "reference_weights": {
+    "bayesian_multilevel": 0.1348151350066195,
+    "catboost": 0.39709877384434517,
+    "elastic_net": 0.1691654494543321,
+    "random_forest": 0.29892064169470295,
+    "mixed_gp": 0.0
+  },
+  "reference_calibrator": {
+    "theta": [
+      0.18703841965511422,
+      1.365735727509419,
+      0.7983951373349465
+    ],
+    "ridge": "2.0",
+    "lambda_mix": 0.5,
+    "round": 3
+  }
+}
